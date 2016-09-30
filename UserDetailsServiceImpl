@@ -36,8 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                     .collect(Collectors.toCollection(ArrayList::new));
 
             // I added this two line
-               Integer userId = appUserService.getUserByUserName(s).getId();
-               request.getSession().setAttribute("userId",userId);
+               request.getSession().setAttribute("userId",appUser.getId());
             return new org.springframework.security.core.userdetails.
                     User(s,appUser.getPassword(),true,true,true,true,authorities);
         }else {
